@@ -15,20 +15,11 @@ app.use('/products', productRoutes);
 app.use('/login', loginRoutes);
 app.use('/orders', orderPageRoutes);
 
-// ✅ Actual tests
-describe('API Route Tests', () => {
-  test('GET /products responds with 200', async () => {
-    const res = await request(app).get('/products');
-    expect(res.statusCode).toBe(200);
-  });
+const PORT = process.env.PORT || 3000;
 
-  test('GET /login responds with 200', async () => {
-    const res = await request(app).get('/login');
-    expect(res.statusCode).toBe(200);
-  });
-
-  test('GET /orders responds with 200', async () => {
-    const res = await request(app).get('/orders');
-    expect(res.statusCode).toBe(200);
-  });
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+
